@@ -140,8 +140,8 @@ jobs:
         body_path: release.txt
         token: ${{ env.GITHUB_TOKEN }}
 
-    - name: 消息推送
-      run: curl "https://api2.pushdeer.com/message/push?pushkey=${{ secrets.PUSHDEER_TOKEN }}&text=【Github Actions】OpenWrt-N1打包成功"
+#    - name: 消息推送
+#      run: curl "https://api2.pushdeer.com/message/push?pushkey=${{ secrets.PUSHDEER_TOKEN }}&text=【Github Actions】OpenWrt-N1打包成功"
 
     - name: 删除运行记录
       uses: Mattraks/delete-workflow-runs@main
