@@ -8,6 +8,8 @@
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 git clone  https://github.com/linkease/luci-app-linkease package/linkease
 git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
+git_sparse_clone main https://github.com/kenzok8/small-package luci-app-floatip floatip
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-onliner
 
 # 加入OpenClash核心
 #chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
@@ -16,8 +18,9 @@ git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
 echo "
 # 插件
 CONFIG_PACKAGE_luci-app-amlogic=y
-CONFIG_PACKAGE_luci-app-linkease=y
 CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-onliner=y
+CONFIG_PACKAGE_luci-app-floatip=y
 " >> .config
 
 # 修改默认IP
