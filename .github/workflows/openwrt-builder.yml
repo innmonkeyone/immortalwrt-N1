@@ -133,7 +133,7 @@ jobs:
       if: ${{ env.tag_status == 'success' }} && !cancelled()
       with:
         tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
-        files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
+        files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
         body_path: release.txt
         token: ${{ env.GITHUB_TOKEN }}
 
