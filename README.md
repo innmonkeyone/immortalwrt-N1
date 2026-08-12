@@ -3,14 +3,8 @@
 固件包含默认皮肤、完整 IPv6 支持，以及下列 luci-app：<br>
 - 添加 amlogic
 - 添加 dockerman
-- <del>添加 Mosdns </del>
-- <del>添加 Pushbot </del>
 - 添加 OpenClash
-- 添加 易有云
-- <del>添加 阿里DDNS </del>
-- <del> 添加 网络唤醒 <del>
-- 添加 lucky大吉
-- 添加 微信推送
+- 添加 Homeproxy
 ***
 # 致谢
 本项目基于天灵的 [ImmortalWrt-23.05](https://github.com/immortalwrt/immortalwrt/tree/openwrt-23.05) 源码编译，使用 flippy 的[脚本](https://github.com/unifreq/openwrt_packit)， breakings 维护的[内核](https://github.com/breakings/OpenWrt/releases/tag/kernel_stable)和nantayo的[编译项目](https://github.com/nantayo/N1-OpenWrt)打包成完整固件，感谢开发者们的无私分享。<br>
