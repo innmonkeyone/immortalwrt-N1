@@ -93,18 +93,15 @@ jobs:
 
     - name: 打包镜像文件
       if: ${{ env.compile_status }} == 'success' && !cancelled()
-      uses: unifreq/openwrt_packit@master
-      env:
-        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
-        KERNEL_VERSION_NAME: 6.12.y
-        PACKAGE_SOC: s905d
-        GZIP_IMGS: .xz
-        SCRIPT_DIY_PATH: N1/mk_s905d_n1.sh
-        WHOAMI: innmonkey
-        OPENWRT_VER: $(date +"%Y.%m.%d")
-        SW_FLOWOFFLOAD: 0
-        SFE_FLOW: 0
-        ENABLE_WIFI_K510: 0
+      uses: ophub/amlogic-s9xxx-openwrt@main
+      with:
+        openwrt_path: openwrt/bin/targets/armsr/armv8/*rootfs.tar.gz
+        openwrt_board: s905d
+        kernel_repo: ophub/kernel
+        kernel_usage: flippy
+        openwrt_kernel: 6.12.y
+        openwrt_size: 256/1024
+        builder_name: innmonkey
 
     - name: 生成发布标签
       if: ${{ env.PACKAGED_STATUS == 'success' }} && !cancelled()
@@ -148,7 +145,7 @@ jobs:
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: 删除自动发布的旧固件
-      uses: dev-drprasad/delete-older-releases@master
+      uses: mgz0227/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 2
