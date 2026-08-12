@@ -2,7 +2,10 @@
 
 # Remove packages
 #rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/luci/applications/luci-app-daed
 
+#去除自动升级
+sed -i '/luci-app-attendedsysupgrade/d' feeds/luci/collections/luci/Makefile
 
 # Add packages
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
@@ -11,6 +14,8 @@ git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 #git_sparse_clone main https://github.com/kenzok8/small-package luci-app-floatip floatip
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-onliner
 git_sparse_clone https://github.com/VIKINGYFY/packages luci-app-homeproxy
+git clone https://github.com/QiuSimons/luci-app-daed package/daed
+
 # 加入OpenClash核心
 #chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 #$GITHUB_WORKSPACE/N1/preset-clash-core.sh
@@ -20,6 +25,7 @@ echo "
 CONFIG_PACKAGE_luci-app-amlogic=y
 CONFIG_PACKAGE_luci-app-homeproxy=y
 CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-daed=y
 " >> .config
 
 # 修改默认IP
