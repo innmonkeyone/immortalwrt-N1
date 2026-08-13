@@ -145,8 +145,11 @@ jobs:
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: 删除自动发布的旧固件
-      uses: mgz0227/delete-older-releases@master
+      uses: Nats-ji/delete-old-releases@v1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 2
-        delete_tags : true
+     with:
+      token: ${{ env.GITHUB_TOKEN }}
+      keep-count: 2
+      keep-old-minor-releases: false
+
+        
