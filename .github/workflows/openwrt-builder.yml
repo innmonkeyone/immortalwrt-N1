@@ -145,10 +145,9 @@ jobs:
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: 删除自动发布的旧固件
-      uses: Nats-ji/delete-old-releases@v1
+      uses: dev-drprasad/delete-older-releases@v0.3.0
       with:
         token: ${{ env.GITHUB_TOKEN }}
-        keep-count: 2
-        keep-old-minor-releases: false
+        keep_latest: 3
+        delete_tags: true
 
-        
