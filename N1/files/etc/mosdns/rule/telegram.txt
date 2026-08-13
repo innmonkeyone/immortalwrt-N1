@@ -1,9 +1,0 @@
-# > Telegram
-t.me
-tx.me
-tdesktop.com
-telegra.ph
-telegram.me
-telegram.org
-telegram-cdn.org
-telesco.pe
