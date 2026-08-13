@@ -146,10 +146,9 @@ jobs:
 
     - name: 删除自动发布的旧固件
       uses: Nats-ji/delete-old-releases@v1
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-     with:
-      token: ${{ env.GITHUB_TOKEN }}
-      keep-count: 2
-      keep-old-minor-releases: false
+      with:
+        token: ${{ env.GITHUB_TOKEN }}
+        keep-count: 2
+        keep-old-minor-releases: false
 
         
