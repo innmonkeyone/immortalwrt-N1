@@ -28,7 +28,7 @@ echo "
 # 插件
 CONFIG_PACKAGE_luci-app-amlogic=y
 CONFIG_PACKAGE_luci-app-openclash=y
-#CONFIG_PACKAGE_luci-app-clashoo=y
+CONFIG_PACKAGE_luci-app-clashoo=y
 CONFIG_PACKAGE_luci-app-nikki=y
 " >> .config
 
