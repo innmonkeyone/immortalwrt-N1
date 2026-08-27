@@ -133,16 +133,16 @@ jobs:
         body_path: release.txt
         token: ${{ env.GITHUB_TOKEN }}
 
-    - name: 删除运行记录
-      uses: Mattraks/delete-workflow-runs@main
+    - name: 删除运行记录和旧固件
+      uses: ophub/delete-releases-workflows@main
       with:
-        retain_days: 1
+        delete_releases: true
+        releases_keep_latest: 3
+        delete_tags: true
+        delete_workflows: true
+        workflows_keep_day: 10
         keep_minimum_runs: 1
-        token: ${{ env.GITHUB_TOKEN }}
+        gh_token: ${{ env.GITHUB_TOKEN }}
 
-    - name: 删除自动发布的旧固件
-      uses: Nats-ji/delete-old-releases@v1
-      with:
-        token: ${{ env.GITHUB_TOKEN }}
-        keep-count: 3  # 保留最新的3个Release
-        keep-old-minor-releases: true
+
+
