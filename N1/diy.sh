@@ -15,7 +15,7 @@ git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
 git clone #https://github.com/kenzok8/openwrt-clashoo.git package/openwrt-clashoo
 #git clone  https://github.com/linkease/luci-app-linkease package/linkease
 #git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
-git_sparse_clone main https://github.com/kenzok8/small-package luci-app-floatip floatip
+#git_sparse_clone main https://github.com/kenzok8/small-package luci-app-floatip floatip
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-onliner
 #git_sparse_clone https://github.com/VIKINGYFY/packages luci-app-homeproxy
 #git clone https://github.com/QiuSimons/luci-app-daed package/daed
@@ -27,10 +27,10 @@ git_sparse_clone main https://github.com/kenzok8/small-package luci-app-floatip 
 echo "
 # 插件
 CONFIG_PACKAGE_luci-app-amlogic=y
-CONFIG_PACKAGE_luci-app-floatip=y
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-clashoo=y
 CONFIG_PACKAGE_luci-app-nikki=y
+CONFIG_PACKAGE_luci-app-keepalived=y
 " >> .config
 
 # 修改默认IP
