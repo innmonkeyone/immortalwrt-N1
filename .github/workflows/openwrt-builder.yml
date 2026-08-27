@@ -89,10 +89,8 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 打包镜像文件
-      if: steps.compile.outputs.status == 'success'
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: openwrt/bin/targets/armsr/armv8/*rootfs.tar.gz
@@ -104,7 +102,6 @@ jobs:
         builder_name: innmonkey
 
     - name: 生成发布标签
-      if: steps.compile.outputs.status == 'success'
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H.%M")" >> ${GITHUB_OUTPUT}
         touch release.txt
@@ -126,11 +123,10 @@ jobs:
         🔒 密码: password 
         
         " >> release.txt
-        echo "tag_status=success" >> $GITHUB_ENV
+
 
     - name: 发布固件到 Releases
-      uses: softprops/action-gh-release@v2
-      if: steps.compile.outputs.status == 'success'
+      uses: softprops/action-gh-release@v3
       with:
         tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
