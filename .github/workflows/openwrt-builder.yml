@@ -149,3 +149,4 @@ jobs:
       with:
         token: ${{ env.GITHUB_TOKEN }}
         keep-count: 3  # 保留最新的3个Release
+        keep-old-minor-releases: true
