@@ -29,6 +29,7 @@ echo "
 CONFIG_PACKAGE_luci-app-amlogic=y
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-keepalived=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
 " >> .config
 
 # 修改默认IP
